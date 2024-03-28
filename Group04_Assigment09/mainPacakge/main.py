@@ -5,8 +5,6 @@ import json
 if __name__ =="__main__":
     
     
-    import requests
-
     url = "https://google-translate1.p.rapidapi.com/language/translate/v2/languages"
     
     headers = {
@@ -16,5 +14,10 @@ if __name__ =="__main__":
     }
     
     response = requests.get(url, headers=headers)
+    data = response.json()
+    languages = data['data']['languages']
     
-    print(response.json())
+    # Filter languages starting with the letter 'A'
+    filtered_languages = [lang['language'] for lang in languages if lang['language'].lower().startswith('a')]
+    
+    print("Languages starting with 'A':", filtered_languages)
