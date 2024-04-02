@@ -5,9 +5,9 @@
 # Due Date: 4/04/2024
 # Course/Section: IS 4010 - 002
 # Semester/Year: Spring 2024
-# Brief Description of the assignment: 
-# Citations: https:
-# Anything else that's relevant:
+# Brief Description of the assignment: Using Google Translator API and written python code to translate random class and book facts 
+# Citations: https://rapidapi.com/googlecloud/api/google-translate1, https://medium.com/analytics-vidhya/how-to-translate-text-with-python-9d203139dcf5, https://www.google.com/books/edition/Introduction_to_JavaScript_Object_Notati/Qv9PCgAAQBAJ?hl=en&gbpv=1 
+# Anything else that's relevant: 
 
 import requests
 import random
@@ -31,30 +31,25 @@ def translate_text(text, source_lang, target_lang):
         translated_text = data['data']['translations'][0]['translatedText']
         return translated_text
     else:
-        return "The translation from english to german failed with status code: {}".format(response.status_code)
+        return "The translation from English to German failed with status code: {}".format(response.status_code)
 
 if __name__ == "__main__":
-    # List of random 
-    english_phrases = [
-        "Hello, how are you?",
-        "What's your name?",
-        "How's the weather today?",
-        "I love learning new things.",
-        "Where is the nearest restaurant?",
-        "Can you help me with this?",
-        "I am feeling happy today.",
-        "What time is it?",
-        "I want to travel the world.",
-        "Do you speak English?"
+    # List of random facts from class
+    english_ClassFacts = [
+        "JSON data is a python dictionary",
+        "API means Application Programming Interface",
+        "A data interchange format is a text used to exchange data between platforms.",
+        "JSON is based JavaScript object literals",
+        "In the real world, there are hundreds of programming langauges"
     ]
     
     # Select a random English phrase
-    random_phrase = random.choice(english_phrases)
+    random_facts = random.choice(english_ClassFacts)
     
     source_language = "en"  # English
     target_language = "de"  # German
 
     # Translate the random English phrase to German
-    translated_text = translate_text(random_phrase, source_language, target_language)
-    print("Random English Phrase:", random_phrase)
-    print("Translated Text from English to German:", translated_text)
+    translated_text = translate_text(random_facts, source_language, target_language)
+    print("Random facts in English:", random_facts)
+    print("Translated Text to German:", translated_text)
