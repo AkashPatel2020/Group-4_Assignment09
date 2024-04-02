@@ -1,3 +1,14 @@
+# main.py
+# Name: Leonie Troeger, Akash Patel
+# email: troegele@mail.uc.edu, Patel5a5@mail.uc.edu
+# Assignment Number: Assignment 09
+# Due Date: 4/04/2024
+# Course/Section: IS 4010 - 002
+# Semester/Year: Spring 2024
+# Brief Description of the assignment: 
+# Citations: https:
+# Anything else that's relevant:
+
 import requests
 import random
 
@@ -20,10 +31,10 @@ def translate_text(text, source_lang, target_lang):
         translated_text = data['data']['translations'][0]['translatedText']
         return translated_text
     else:
-        return "Translation failed with status code: {}".format(response.status_code)
+        return "The translation from english to german failed with status code: {}".format(response.status_code)
 
 if __name__ == "__main__":
-    # List of English phrases
+    # List of random 
     english_phrases = [
         "Hello, how are you?",
         "What's your name?",
