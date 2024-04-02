@@ -8,7 +8,7 @@ if __name__ =="__main__":
         url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
         headers = {
             "Accept-Encoding": "application/gzip",
-            "X-RapidAPI-Key": "ac38db332emsh019d1632ab66393p1d1734jsn1cb0729b4fa4",
+            "X-RapidAPI-Key": "13efaf5087msh7753c93dc15c882p1452a2jsnf83ff2d2cfe3",
             "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
             "Content-Type": "application/x-www-form-urlencoded"
         }
@@ -29,5 +29,6 @@ if __name__ =="__main__":
         text_to_translate = "Hello, how are you?"
         source_language = "en"  # English
         target_language = "es"  # Spanish
+
         translated_text = translate_text(text_to_translate, source_language, target_language)
         print("Translated Text:", translated_text)
