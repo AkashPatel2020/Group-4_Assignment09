@@ -1,34 +1,60 @@
-# main.py 
+# main.py
+# Name: Leonie Troeger, Akash Patel
+# email: troegele@mail.uc.edu, Patel5a5@mail.uc.edu
+# Assignment Number: Assignment 09
+# Due Date: 4/04/2024
+# Course/Section: IS 4010 - 002
+# Semester/Year: Spring 2024
+# Brief Description of the assignment: 
+# Citations: https:
+# Anything else that's relevant:
+
 import requests
-import json
+import random
 
-if __name__ =="__main__":
-    
-    def translate_text(text, source_lang, target_lang):
-        url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
-        headers = {
-            "Accept-Encoding": "application/gzip",
-            "X-RapidAPI-Key": "13efaf5087msh7753c93dc15c882p1452a2jsnf83ff2d2cfe3",
-            "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
-        payload = {
-            "q": text,
-            "source": source_lang,
-            "target": target_lang
-        }
-        response = requests.post(url, headers=headers, data=payload)
-        if response.status_code == 200:
-            data = response.json()
-            translated_text = data['data']['translations'][0]['translatedText']
-            return translated_text
-        else:
-            return "Translation failed with status code: {}".format(response.status_code)
-    
-    if __name__ == "__main__":
-        text_to_translate = "Hello, how are you?"
-        source_language = "en"  # English
-        target_language = "es"  # Spanish
+def translate_text(text, source_lang, target_lang):
+    url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
+    headers = {
+        "Accept-Encoding": "application/gzip",
+        "X-RapidAPI-Key": "13efaf5087msh7753c93dc15c882p1452a2jsnf83ff2d2cfe3",
+        "X-RapidAPI-Host": "google-translate1.p.rapidapi.com",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    payload = {
+        "q": text,
+        "source": source_lang,
+        "target": target_lang
+    }
+    response = requests.post(url, headers=headers, data=payload)
+    if response.status_code == 200:
+        data = response.json()
+        translated_text = data['data']['translations'][0]['translatedText']
+        return translated_text
+    else:
+        return "The translation from english to german failed with status code: {}".format(response.status_code)
 
-        translated_text = translate_text(text_to_translate, source_language, target_language)
-        print("Translated Text:", translated_text)
+if __name__ == "__main__":
+    # List of random 
+    english_phrases = [
+        "Hello, how are you?",
+        "What's your name?",
+        "How's the weather today?",
+        "I love learning new things.",
+        "Where is the nearest restaurant?",
+        "Can you help me with this?",
+        "I am feeling happy today.",
+        "What time is it?",
+        "I want to travel the world.",
+        "Do you speak English?"
+    ]
+    
+    # Select a random English phrase
+    random_phrase = random.choice(english_phrases)
+    
+    source_language = "en"  # English
+    target_language = "de"  # German
+
+    # Translate the random English phrase to German
+    translated_text = translate_text(random_phrase, source_language, target_language)
+    print("Random English Phrase:", random_phrase)
+    print("Translated Text from English to German:", translated_text)
